@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfrlxj1rkovlb"]
+
+[ext_resource type="PackedScene" uid="uid://bdlgdaxmj4wo1" path="res://game/entities/enemies/melee_enemies/base_melee_enemy/melee_enemy.tscn" id="1_jnswo"]
+[ext_resource type="Texture2D" uid="uid://cfkwgcjbkldgw" path="res://assets/sprites/entities/enemies/spearman.png" id="2_f0aa5"]
+
+[node name="Spearman" instance=ExtResource("1_jnswo")]
+max_hp = 50
+hp = 50
+speed = 1250
+
+[node name="Sprite2D" parent="SpriteContainer" index="0"]
+texture = ExtResource("2_f0aa5")

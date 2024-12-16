@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://vas60yvh727f"]
+
+[ext_resource type="Script" path="res://game/gold_ore.gd" id="1_y5ppq"]
+[ext_resource type="Texture2D" uid="uid://bmrjlwtiil4va" path="res://assets/sprites/gold_ore.png" id="1_yp81q"]
+[ext_resource type="Texture2D" uid="uid://hyn3tni1watl" path="res://assets/sprites/pickaxe.png" id="2_k8aiy"]
+
+[sub_resource type="Animation" id="Animation_2qpqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pickaxe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pickaxe:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.319395]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ore:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v7hx4"]
+resource_name = "pickaxe_blow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pickaxe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(21, 6), Vector2(26, 8), Vector2(20, 5), Vector2(21, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pickaxe:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.319395, 6.28319, 6.28319, 5.01957, 5.96379]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ore:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urxks"]
+_data = {
+"RESET": SubResource("Animation_2qpqa"),
+"pickaxe_blow": SubResource("Animation_v7hx4")
+}
+
+[node name="GoldOre" type="Node2D"]
+script = ExtResource("1_y5ppq")
+
+[node name="Ore" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_yp81q")
+
+[node name="Pickaxe" type="Sprite2D" parent="."]
+position = Vector2(21, 6)
+rotation = -0.319395
+texture = ExtResource("2_k8aiy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_urxks")
+}

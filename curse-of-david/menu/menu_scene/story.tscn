@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhy1usnaqdul0"]
+
+[ext_resource type="Script" path="res://menu/menu_scene/story.gd" id="1_6gor4"]
+[ext_resource type="Texture2D" uid="uid://ctchlawgg8i4g" path="res://assets/sprites/Story/Story_1.png" id="1_bujjc"]
+
+[node name="Story" type="CanvasLayer"]
+script = ExtResource("1_6gor4")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bujjc")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

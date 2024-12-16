@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1hnfjj1sfujs"]
+
+[ext_resource type="PackedScene" uid="uid://jeo8nok6ytct" path="res://game/entities/base_entity/base_entity.tscn" id="1_hu44e"]
+[ext_resource type="Script" path="res://game/entities/player/player.gd" id="2_enjq2"]
+[ext_resource type="Texture2D" uid="uid://cjnf3kb78e0dt" path="res://assets/sprites/entities/player.png" id="2_iw8t5"]
+[ext_resource type="Script" path="res://game/entities/player/camera_2d.gd" id="4_sdakw"]
+
+[node name="Player" groups=["player"] instance=ExtResource("1_hu44e")]
+collision_layer = 20
+script = ExtResource("2_enjq2")
+max_hp = 200
+hp = 200
+speed = 1500
+
+[node name="Sprite2D" parent="SpriteContainer" index="0"]
+texture = ExtResource("2_iw8t5")
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+zoom = Vector2(0.25, 0.25)
+position_smoothing_enabled = true
+script = ExtResource("4_sdakw")

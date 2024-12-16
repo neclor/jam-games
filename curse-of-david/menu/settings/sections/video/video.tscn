@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://pj80aanov0ur"]
+
+[ext_resource type="PackedScene" uid="uid://duoluj7lv3mhq" path="res://menu/settings/components/tab/tab.tscn" id="1_xod4v"]
+[ext_resource type="PackedScene" uid="uid://b23v228jhr8ip" path="res://menu/settings/sections/video/settings/window_resolution_setting/window_resolution_setting.tscn" id="2_07tb2"]
+[ext_resource type="PackedScene" uid="uid://b1jqjw3lwtx2p" path="res://menu/settings/sections/video/settings/window_mode_setting/window_mode_setting.tscn" id="3_v57jm"]
+[ext_resource type="PackedScene" uid="uid://b7v41taavcmfx" path="res://menu/settings/sections/video/settings/v_sync_mode_setting/v_sync_mode_setting.tscn" id="4_1fl41"]
+
+[node name="Video" instance=ExtResource("1_xod4v")]
+
+[node name="MarginContainer_ScrollContainer_VBoxContainer#WindowResolutionSetting" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("2_07tb2")]
+layout_mode = 2
+
+[node name="MarginContainer_ScrollContainer_VBoxContainer#WindowModeSetting" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("3_v57jm")]
+layout_mode = 2
+
+[node name="MarginContainer_ScrollContainer_VBoxContainer#VSyncModeSetting" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("4_1fl41")]
+layout_mode = 2

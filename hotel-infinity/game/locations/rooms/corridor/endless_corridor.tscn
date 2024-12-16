@@ -1,0 +1,203 @@
+[gd_scene load_steps=20 format=3 uid="uid://04ajh3m2i5v1"]
+
+[ext_resource type="Script" path="res://game/locations/rooms/corridor/endless_corridor.gd" id="1_hw27a"]
+[ext_resource type="Texture2D" uid="uid://bps378cg7bsga" path="res://assets/corridor.png" id="2_4ty4q"]
+[ext_resource type="Script" path="res://game/locations/rooms/corridor/light.gd" id="3_anc5y"]
+[ext_resource type="PackedScene" uid="uid://b1uaan21ulox5" path="res://game/character/character.tscn" id="3_l7chh"]
+[ext_resource type="Texture2D" uid="uid://csbys4yiskwgh" path="res://assets/light_on.png" id="3_vlvdy"]
+[ext_resource type="Texture2D" uid="uid://lfwud5qvwlw7" path="res://assets/left_arrow.png" id="5_cfi1m"]
+[ext_resource type="Texture2D" uid="uid://c4dbwocnn4wcr" path="res://assets/right_arrow.png" id="6_3hcqu"]
+[ext_resource type="PackedScene" uid="uid://xs3n7ofe5h5r" path="res://game/enemy/ghost/ghost.tscn" id="6_w8psx"]
+[ext_resource type="PackedScene" uid="uid://motsrbi7xkoc" path="res://game/locations/objects/key_fragment/key_fragment.tscn" id="9_pm40o"]
+[ext_resource type="Texture2D" uid="uid://btkerjqrs3ic2" path="res://assets/key_fragment.png" id="10_5bq2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olh1t"]
+radius = 16.8947
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dosnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aahxi"]
+size = Vector2(49, 483)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6bla"]
+size = Vector2(49, 498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytlfq"]
+size = Vector2(1261, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa0pj"]
+size = Vector2(1211, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0dhc"]
+size = Vector2(60.5, 298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08l5s"]
+size = Vector2(62, 335)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qegic"]
+radius = 98.2496
+
+[node name="EndlessCorridor" type="Node2D"]
+script = ExtResource("1_hw27a")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_4ty4q")
+
+[node name="Light" type="Node2D" parent="."]
+script = ExtResource("3_anc5y")
+
+[node name="LightSprite" type="Sprite2D" parent="Light"]
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("3_vlvdy")
+
+[node name="Area2D" type="Area2D" parent="Light"]
+position = Vector2(549, 243)
+scale = Vector2(4.5, 4.5)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light/Area2D"]
+shape = SubResource("CircleShape2D_olh1t")
+
+[node name="ELabel" type="Label" parent="Light"]
+visible = false
+offset_left = 554.0
+offset_top = 127.0
+offset_right = 564.0
+offset_bottom = 150.0
+scale = Vector2(2, 2)
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 615)
+shape = SubResource("WorldBoundaryShape2D_dosnn")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(24.5, 199.5)
+shape = SubResource("RectangleShape2D_aahxi")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(1127.5, 192)
+shape = SubResource("RectangleShape2D_r6bla")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Roof"]
+position = Vector2(569, 7)
+shape = SubResource("RectangleShape2D_ytlfq")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Platform"]
+position = Vector2(579.5, 333)
+shape = SubResource("RectangleShape2D_sa0pj")
+one_way_collision = true
+
+[node name="LeftDoor" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="LeftDoor"]
+position = Vector2(5.75, 547)
+shape = SubResource("RectangleShape2D_r0dhc")
+
+[node name="RightDoor" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RightDoor"]
+position = Vector2(1147, 552.5)
+shape = SubResource("RectangleShape2D_08l5s")
+
+[node name="LeftArrow" type="Sprite2D" parent="."]
+position = Vector2(188, 529)
+scale = Vector2(4.25, 4.05)
+texture = ExtResource("5_cfi1m")
+
+[node name="RightArrow" type="Sprite2D" parent="."]
+position = Vector2(960, 534)
+scale = Vector2(5.35, 4.15)
+texture = ExtResource("6_3hcqu")
+
+[node name="LeftMarker" type="Marker2D" parent="."]
+position = Vector2(128, 548)
+scale = Vector2(5, 5)
+
+[node name="RightMarker" type="Marker2D" parent="."]
+position = Vector2(1025, 548)
+
+[node name="GhostMarker" type="Marker2D" parent="."]
+position = Vector2(-245, -298)
+
+[node name="restartm" type="Marker2D" parent="."]
+position = Vector2(559, 546)
+scale = Vector2(4.5, 4.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(446, 465)
+scale = Vector2(2.15625, 1.92969)
+texture = ExtResource("10_5bq2j")
+
+[node name="Key_fragment" parent="." instance=ExtResource("9_pm40o")]
+top_level = true
+position = Vector2(193, 505)
+
+[node name="Key_fragment2" parent="." instance=ExtResource("9_pm40o")]
+top_level = true
+position = Vector2(953, 207)
+
+[node name="Key_fragment3" parent="." instance=ExtResource("9_pm40o")]
+top_level = true
+position = Vector2(965, 511)
+
+[node name="Key_fragment4" parent="." instance=ExtResource("9_pm40o")]
+top_level = true
+position = Vector2(174, 222)
+
+[node name="Character" parent="." instance=ExtResource("3_l7chh")]
+position = Vector2(128, 548)
+scale = Vector2(5, 5)
+
+[node name="Ghost" parent="." instance=ExtResource("6_w8psx")]
+position = Vector2(-245, -298)
+
+[node name="door" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="Label" type="Label" parent="door"]
+visible = false
+offset_left = 432.0
+offset_top = 373.0
+offset_right = 450.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 32
+text = "E"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+position = Vector2(443, 507)
+rotation = 0.0240077
+shape = SubResource("CircleShape2D_qegic")
+
+[connection signal="body_entered" from="Light/Area2D" to="Light" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Light/Area2D" to="Light" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="LeftDoor" to="." method="_on_left_door_body_entered"]
+[connection signal="body_entered" from="RightDoor" to="." method="_on_right_door_body_entered"]
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]

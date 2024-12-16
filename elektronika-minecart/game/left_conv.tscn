@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgx0yatmjoots"]
+
+[ext_resource type="TileSet" uid="uid://bcbq2ebsbvt1d" path="res://resources/conv_tile_set.tres" id="1_0svyj"]
+
+[node name="LeftConv" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_0svyj")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 65536)

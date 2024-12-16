@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnbk8luiwge6j"]
+
+[ext_resource type="PackedScene" uid="uid://bdlgdaxmj4wo1" path="res://game/entities/enemies/melee_enemies/base_melee_enemy/melee_enemy.tscn" id="1_gs3uc"]
+[ext_resource type="Texture2D" uid="uid://dutbk0w3et0qv" path="res://assets/sprites/entities/enemies/knight.png" id="2_ulios"]
+
+[node name="Knight" instance=ExtResource("1_gs3uc")]
+damage = 20
+max_hp = 150
+hp = 150
+
+[node name="Sprite2D" parent="SpriteContainer" index="0"]
+texture = ExtResource("2_ulios")

@@ -1,0 +1,30 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bcbq2ebsbvt1d"]
+
+[ext_resource type="Texture2D" uid="uid://u2mo5nt48ghp" path="res://assets/sprites/conveyor_spritelist.png" id="1_ms4gl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qab2n"]
+texture = ExtResource("1_ms4gl")
+separation = Vector2i(1, 0)
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 3
+0:0/animation_columns = 4
+0:0/animation_speed = 6.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(50, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21, -16, -16, -16, -16, -6, 16, -6, 16, 6, 16, 6, -16, 6, -21, 6)
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(-50, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -6, 16, -6, 16, -16, 21, -16.5, 21, 6, 16, 6, 16, 6, -16, 6)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_qab2n")

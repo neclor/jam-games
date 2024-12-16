@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://7sneutl6cl8b"]
+
+[ext_resource type="Script" path="res://menu/menu_scene/menu.gd" id="1_251ek"]
+[ext_resource type="PackedScene" uid="uid://co7otipb7bv3k" path="res://menu/background/background.tscn" id="2_4iyjx"]
+[ext_resource type="Texture2D" uid="uid://dghflurqs1ph1" path="res://assets/sprites/button.png" id="2_xxcx8"]
+[ext_resource type="PackedScene" uid="uid://cpirb3k47wrdk" path="res://menu/settings/settings.tscn" id="4_irkkj"]
+[ext_resource type="PackedScene" uid="uid://dhy1usnaqdul0" path="res://menu/menu_scene/story.tscn" id="5_pgry0"]
+
+[sub_resource type="Animation" id="Animation_qsnaq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fhrq8"]
+resource_name = "waiting"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3996, 0.7992, 1.1988, 1.5984),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1309, 0.0, -0.1309, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_34tf6"]
+_data = {
+"RESET": SubResource("Animation_qsnaq"),
+"waiting": SubResource("Animation_fhrq8")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_251ek")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+offset_left = 41.0
+offset_top = 246.0
+offset_right = 553.0
+offset_bottom = 758.0
+pivot_offset = Vector2(256, 256)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_xxcx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_34tf6")
+}
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 108.0
+offset_right = 493.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Start"
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+offset_left = 42.0
+offset_top = 613.0
+offset_right = 554.0
+offset_bottom = 1125.0
+pivot_offset = Vector2(256, 256)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xxcx8")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2"]
+libraries = {
+"": SubResource("AnimationLibrary_34tf6")
+}
+
+[node name="Button" type="Button" parent="TextureRect2"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 111.0
+offset_right = 497.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+flat = true
+
+[node name="Background" parent="." instance=ExtResource("2_4iyjx")]
+layer = -1
+
+[node name="Settings" parent="." instance=ExtResource("4_irkkj")]
+visible = false
+
+[node name="Story" parent="." instance=ExtResource("5_pgry0")]
+layer = 5
+visible = false
+
+[connection signal="mouse_entered" from="TextureRect/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="TextureRect2/Button" to="." method="_on_button2_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect2/Button" to="." method="_on_button2_mouse_exited"]
+[connection signal="pressed" from="TextureRect2/Button" to="." method="_on_button_2_pressed"]

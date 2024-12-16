@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Elektronika \"Minecart\""
+run/main_scene="res://game/game.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://assets/sprites/cart_ico.png"
+boot_splash/use_filter=false
+config/icon="res://assets/sprites/cart_ico.png"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom_font="res://assets/JacquardaBastarda9-Regular.ttf"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="conv"
+2d_physics/layer_2="gold"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

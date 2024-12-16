@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpfdxe2t7cj1t"]
+
+[ext_resource type="Script" path="res://ui/sfx.gd" id="1_5axu6"]
+
+[node name="SFX" type="AudioStreamPlayer"]
+volume_db = -10.0
+max_polyphony = 100
+script = ExtResource("1_5axu6")

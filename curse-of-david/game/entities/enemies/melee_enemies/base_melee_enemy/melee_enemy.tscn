@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdlgdaxmj4wo1"]
+
+[ext_resource type="PackedScene" uid="uid://beqoaclqr676h" path="res://game/entities/enemies/base_enemy/base_enemy.tscn" id="1_s20e2"]
+[ext_resource type="Script" path="res://game/entities/enemies/melee_enemies/base_melee_enemy/melee_enemy.gd" id="2_f3ysk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqpud"]
+radius = 128.0
+
+[node name="MeleeEnemy" instance=ExtResource("1_s20e2")]
+script = ExtResource("2_f3ysk")
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_dqpud")
+debug_color = Color(0.65098, 0.6, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

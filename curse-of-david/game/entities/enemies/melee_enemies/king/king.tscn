@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7xr30d77ug1r"]
+
+[ext_resource type="PackedScene" uid="uid://bdlgdaxmj4wo1" path="res://game/entities/enemies/melee_enemies/base_melee_enemy/melee_enemy.tscn" id="1_wnf4w"]
+[ext_resource type="Script" path="res://game/entities/enemies/melee_enemies/king/king.gd" id="2_e1a2y"]
+[ext_resource type="Texture2D" uid="uid://crnem53i7dw3n" path="res://assets/sprites/entities/enemies/King.png" id="2_g6a6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdeef"]
+radius = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khkip"]
+radius = 256.0
+
+[node name="King" instance=ExtResource("1_wnf4w")]
+script = ExtResource("2_e1a2y")
+damage = 50
+max_hp = 500
+hp = 500
+
+[node name="AttackCooldown" parent="." index="0"]
+wait_time = 5.0
+
+[node name="Sprite2D" parent="SpriteContainer" index="0"]
+position = Vector2(27, -45)
+texture = ExtResource("2_g6a6c")
+offset = Vector2(0, -256)
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_fdeef")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_khkip")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://prwm8ndlflir"]
+
+[ext_resource type="Texture2D" uid="uid://bec4u1gsn5tys" path="res://assets/start_location.png" id="1_fwgey"]
+[ext_resource type="Script" path="res://game/locations/rooms/start_room/start_room.gd" id="1_w8o0u"]
+[ext_resource type="PackedScene" uid="uid://b1uaan21ulox5" path="res://game/character/character.tscn" id="2_hb0ql"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trguf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b811l"]
+size = Vector2(49, 726)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1uii"]
+size = Vector2(55, 819.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gj5"]
+size = Vector2(1261, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4y1x"]
+size = Vector2(62, 335)
+
+[node name="StartRoom" type="Node2D"]
+script = ExtResource("1_w8o0u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_fwgey")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 615)
+shape = SubResource("WorldBoundaryShape2D_trguf")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(24.5, 321)
+shape = SubResource("RectangleShape2D_b811l")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(1125, -12)
+shape = SubResource("RectangleShape2D_w1uii")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Roof"]
+position = Vector2(553, 306)
+shape = SubResource("RectangleShape2D_k2gj5")
+
+[node name="RightDoor" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RightDoor"]
+position = Vector2(1147, 552.5)
+shape = SubResource("RectangleShape2D_p4y1x")
+
+[node name="Character" parent="." instance=ExtResource("2_hb0ql")]
+position = Vector2(104, 543)
+scale = Vector2(5, 5)
+
+[connection signal="body_entered" from="RightDoor" to="." method="_on_right_door_body_entered"]

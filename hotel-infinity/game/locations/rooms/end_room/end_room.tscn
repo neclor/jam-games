@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4y3if45u32l4"]
+
+[ext_resource type="Script" path="res://game/locations/rooms/end_room/end_room.gd" id="1_ow4vh"]
+[ext_resource type="Texture2D" uid="uid://ctwo55j7rmv5c" path="res://assets/end_location.png" id="2_04226"]
+[ext_resource type="AudioStream" uid="uid://ch22ts2s5u243" path="res://assets/sound/ghost.mp3" id="2_boj8v"]
+[ext_resource type="Script" path="res://game/locations/rooms/end_room/character.gd" id="3_m3uwq"]
+[ext_resource type="PackedScene" uid="uid://b1uaan21ulox5" path="res://game/character/character.tscn" id="3_x0tmi"]
+[ext_resource type="PackedScene" uid="uid://xs3n7ofe5h5r" path="res://game/enemy/ghost/ghost.tscn" id="4_vq5r0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trguf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b811l"]
+size = Vector2(49, 726)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1uii"]
+size = Vector2(55, 819.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gj5"]
+size = Vector2(1261, 41)
+
+[node name="EndRoom" type="Node2D"]
+modulate = Color(0.25098, 0.25098, 0.25098, 1)
+script = ExtResource("1_ow4vh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_boj8v")
+volume_db = -30.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_04226")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 615)
+shape = SubResource("WorldBoundaryShape2D_trguf")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(24.5, 321)
+shape = SubResource("RectangleShape2D_b811l")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(1143, 346)
+shape = SubResource("RectangleShape2D_w1uii")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Roof"]
+position = Vector2(553, 306)
+shape = SubResource("RectangleShape2D_k2gj5")
+
+[node name="Character" parent="." instance=ExtResource("3_x0tmi")]
+position = Vector2(104, 543)
+scale = Vector2(5, 5)
+script = ExtResource("3_m3uwq")
+
+[node name="Ghost" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(338, 195)
+
+[node name="Ghost2" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(640, 559)
+
+[node name="Ghost4" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(511, 407)
+
+[node name="Ghost7" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(605, 123)
+
+[node name="Ghost8" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(695, 316)
+
+[node name="Ghost9" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(802, 469)
+
+[node name="Ghost10" parent="." instance=ExtResource("4_vq5r0")]
+position = Vector2(877, 154)

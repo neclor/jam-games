@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqp1vf7vcn8cw"]
+
+[ext_resource type="PackedScene" uid="uid://duoluj7lv3mhq" path="res://menu/settings/components/tab/tab.tscn" id="1_cqk7u"]
+[ext_resource type="Script" path="res://menu/settings/sections/keybindings/keybindings.gd" id="2_p6r3y"]
+
+[node name="Keybindings" instance=ExtResource("1_cqk7u")]
+script = ExtResource("2_p6r3y")
+
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+focus_mode = 0
+text = "Reset to Default"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

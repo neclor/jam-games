@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpirb3k47wrdk"]
+
+[ext_resource type="Script" path="res://menu/settings/settings.gd" id="1_uywma"]
+[ext_resource type="PackedScene" uid="uid://dqp1vf7vcn8cw" path="res://menu/settings/sections/keybindings/keybindings.tscn" id="2_m7ng7"]
+[ext_resource type="PackedScene" uid="uid://pj80aanov0ur" path="res://menu/settings/sections/video/video.tscn" id="3_beflk"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_uywma")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+current_tab = 1
+tab_focus_mode = 0
+
+[node name="< Back" type="Control" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Video" parent="MarginContainer/TabContainer" instance=ExtResource("3_beflk")]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Keybindings" parent="MarginContainer/TabContainer" instance=ExtResource("2_m7ng7")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[connection signal="tab_selected" from="MarginContainer/TabContainer" to="." method="_on_tab_container_tab_selected"]

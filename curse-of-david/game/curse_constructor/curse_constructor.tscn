@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2m1xlll1spn5"]
+
+[ext_resource type="Script" path="res://game/curse_constructor/curse_constructor.gd" id="1_wvm7f"]
+
+[sub_resource type="Gradient" id="Gradient_pgmr1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array()
+colors = PackedColorArray()
+
+[node name="CurseConstructor" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_wvm7f")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(960, 560)
+
+[node name="Line2D" type="Line2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.501961)
+width = 32.0
+gradient = SubResource("Gradient_pgmr1")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ButtonContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

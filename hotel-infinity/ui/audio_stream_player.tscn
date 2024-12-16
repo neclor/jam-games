@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwxkj6rorxcym"]
+
+[ext_resource type="AudioStream" uid="uid://tft1duxupyf3" path="res://assets/sound/ost.mp3" id="1_qa0k7"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_qa0k7")
+volume_db = -20.0

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh0hp3k1nmrb6"]
+
+[ext_resource type="Script" path="res://game/minecart.gd" id="1_fbr7i"]
+[ext_resource type="Texture2D" uid="uid://b13wqdwmscnxm" path="res://assets/sprites/minecart_spritelist.png" id="1_ssenm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaoy7"]
+atlas = ExtResource("1_ssenm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bti2v"]
+atlas = ExtResource("1_ssenm")
+region = Rect2(33, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7skw"]
+atlas = ExtResource("1_ssenm")
+region = Rect2(66, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdw3h"]
+atlas = ExtResource("1_ssenm")
+region = Rect2(99, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woq75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaoy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bti2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7skw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdw3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 50.0
+}]
+
+[node name="Minecart" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fbr7i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_woq75")
+frame_progress = 0.299153
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, -10, 16, -10, 12, 8, -12, 8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

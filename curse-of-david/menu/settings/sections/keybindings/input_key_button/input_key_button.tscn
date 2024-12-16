@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqbejnqubpw1r"]
+
+[ext_resource type="Script" path="res://menu/settings/sections/keybindings/input_key_button/input_key_button.gd" id="1_3aa81"]
+
+[node name="InputKeyButton" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_3aa81")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Test Action"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "Input Key"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://de3mh1poj6twa"]
+
+[ext_resource type="Texture2D" uid="uid://b0vyfjw7la0kk" path="res://assets/sprites/gold.png" id="1_pe2lq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ityd5"]
+radius = 18.0
+
+[node name="Gold" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_pe2lq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ityd5")

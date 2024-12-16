@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://co7otipb7bv3k"]
+
+[ext_resource type="Texture2D" uid="uid://ber7wi50rhevt" path="res://assets/sprites/сastle.png" id="1_wvdof"]
+[ext_resource type="Texture2D" uid="uid://cjnf3kb78e0dt" path="res://assets/sprites/entities/player.png" id="2_4kp4k"]
+
+[node name="Background" type="CanvasLayer"]
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(680, -104)
+amount = 128
+lifetime = 50.0
+texture = ExtResource("1_wvdof")
+emission_shape = 3
+emission_rect_extents = Vector2(1152, 1)
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(680, -104)
+amount = 128
+lifetime = 30.0
+texture = ExtResource("2_4kp4k")
+emission_shape = 3
+emission_rect_extents = Vector2(1152, 1)
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 128.0
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1

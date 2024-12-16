@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7v41taavcmfx"]
+
+[ext_resource type="PackedScene" uid="uid://bnuvwhvwecrqh" path="res://menu/settings/components/option_setting/option_setting.tscn" id="1_hmkss"]
+[ext_resource type="Script" path="res://menu/settings/sections/video/settings/v_sync_mode_setting/v_sync_mode_setting.gd" id="2_1v58x"]
+
+[node name="VSyncModeSetting" instance=ExtResource("1_hmkss")]
+script = ExtResource("2_1v58x")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "V-Sync Mode"
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

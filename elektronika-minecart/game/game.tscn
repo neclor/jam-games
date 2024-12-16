@@ -1,0 +1,334 @@
+[gd_scene load_steps=15 format=3 uid="uid://ctme0qqfceie0"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_38x0i"]
+[ext_resource type="Texture2D" uid="uid://c4e705k02vojr" path="res://assets/sprites/mine.png" id="1_r0y05"]
+[ext_resource type="PackedScene" uid="uid://bh0hp3k1nmrb6" path="res://game/minecart.tscn" id="2_c4uhg"]
+[ext_resource type="PackedScene" uid="uid://6fs1j4140tq4" path="res://game/right_conv.tscn" id="3_tqnrb"]
+[ext_resource type="Texture2D" uid="uid://bwb0tar35v06s" path="res://assets/sprites/cart_ico.png" id="3_ydqu0"]
+[ext_resource type="PackedScene" uid="uid://bgx0yatmjoots" path="res://game/left_conv.tscn" id="4_3ft52"]
+[ext_resource type="PackedScene" uid="uid://vas60yvh727f" path="res://game/gold_ore.tscn" id="6_raehq"]
+
+[sub_resource type="Animation" id="Animation_pohnw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minecart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 504)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Minecart:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_48kl4"]
+resource_name = "left_down_0"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minecart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 504), Vector2(288, 504)]
+}
+
+[sub_resource type="Animation" id="Animation_fgiax"]
+resource_name = "left_up_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minecart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 504), Vector2(549, 504), Vector2(504, 486), Vector2(317, 299), Vector2(212, 252), Vector2(108, 252)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Minecart:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.785398, 0.785398, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_430a7"]
+resource_name = "right_down_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minecart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 504), Vector2(864, 504)]
+}
+
+[sub_resource type="Animation" id="Animation_1evv5"]
+resource_name = "right_up_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minecart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 504), Vector2(603, 504), Vector2(648, 485), Vector2(834, 299), Vector2(940, 252), Vector2(1044, 252)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Minecart:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.785398, -0.785398, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_td0ca"]
+_data = {
+"RESET": SubResource("Animation_pohnw"),
+"left_down_0": SubResource("Animation_48kl4"),
+"left_up_1": SubResource("Animation_fgiax"),
+"right_down_2": SubResource("Animation_430a7"),
+"right_up_3": SubResource("Animation_1evv5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynbcd"]
+size = Vector2(1987, 67)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_38x0i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r0y05")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="GoldCounter" type="Label" parent="CanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -26.5
+offset_right = 40.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Gold: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="control" type="Label" parent="CanvasLayer2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.5
+offset_right = 208.5
+offset_bottom = 154.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "
+
+Click on screen 
+to control
+the minecart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 250
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ydqu0")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ydqu0")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ydqu0")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Button_1" type="Button" parent="CanvasLayer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+flat = true
+
+[node name="Button_3" type="Button" parent="CanvasLayer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+flat = true
+
+[node name="Button_0" type="Button" parent="CanvasLayer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+flat = true
+
+[node name="Button_2" type="Button" parent="CanvasLayer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+flat = true
+
+[node name="Minecart" parent="." instance=ExtResource("2_c4uhg")]
+position = Vector2(576, 504)
+scale = Vector2(4.5, 4.5)
+
+[node name="RightConv_0" parent="." instance=ExtResource("3_tqnrb")]
+position = Vector2(72, 351)
+scale = Vector2(4.5, 4.5)
+
+[node name="RightConv_3" parent="." instance=ExtResource("3_tqnrb")]
+position = Vector2(828, 99)
+scale = Vector2(4.5, 4.5)
+
+[node name="LeftConv_2" parent="." instance=ExtResource("4_3ft52")]
+position = Vector2(936, 351)
+scale = Vector2(4.5, 4.5)
+
+[node name="LeftConv_1" parent="." instance=ExtResource("4_3ft52")]
+position = Vector2(180, 99)
+scale = Vector2(4.5, 4.5)
+
+[node name="GoldOre" parent="." instance=ExtResource("6_raehq")]
+position = Vector2(0, 324)
+scale = Vector2(4.5, 4.5)
+
+[node name="GoldOre_1" parent="." instance=ExtResource("6_raehq")]
+position = Vector2(315, 72)
+scale = Vector2(4.5, 4.5)
+
+[node name="GoldOre_2" parent="." instance=ExtResource("6_raehq")]
+position = Vector2(1152, 324)
+scale = Vector2(-4.5, 4.5)
+
+[node name="GoldOre_3" parent="." instance=ExtResource("6_raehq")]
+position = Vector2(837, 72)
+scale = Vector2(-4.5, 4.5)
+
+[node name="spawn_0" type="Marker2D" parent="."]
+position = Vector2(90, 373)
+
+[node name="spawn_1" type="Marker2D" parent="."]
+position = Vector2(306, 121)
+
+[node name="spawn_2" type="Marker2D" parent="."]
+position = Vector2(1062, 373)
+
+[node name="spawn_3" type="Marker2D" parent="."]
+position = Vector2(846, 121)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_td0ca")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(549.5, 614.5)
+shape = SubResource("RectangleShape2D_ynbcd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="pressed" from="CanvasLayer2/GridContainer/Button_1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer2/GridContainer/Button_3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer2/GridContainer/Button_0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="CanvasLayer2/GridContainer/Button_2" to="." method="_on_button_2_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

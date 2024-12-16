@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1jqjw3lwtx2p"]
+
+[ext_resource type="PackedScene" uid="uid://bnuvwhvwecrqh" path="res://menu/settings/components/option_setting/option_setting.tscn" id="1_apmu7"]
+[ext_resource type="Script" path="res://menu/settings/sections/video/settings/window_mode_setting/window_mode_setting.gd" id="2_rew4l"]
+
+[node name="WindowModeSetting" instance=ExtResource("1_apmu7")]
+script = ExtResource("2_rew4l")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Window Mode"
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
