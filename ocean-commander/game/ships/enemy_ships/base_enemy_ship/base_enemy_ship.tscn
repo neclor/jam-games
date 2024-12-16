@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx4om8uu4glwi"]
+
+[ext_resource type="PackedScene" uid="uid://b68j01ywj02vb" path="res://game/ships/base_ship/base_ship.tscn" id="1_tchjd"]
+[ext_resource type="Script" path="res://game/ships/enemy_ships/base_enemy_ship/base_enemy_ship.gd" id="2_3gy20"]
+
+[node name="BaseEnemyShip" groups=["enemy"] instance=ExtResource("1_tchjd")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+collision_layer = 20
+collision_mask = 29
+script = ExtResource("2_3gy20")
+target_group = &"player"
+
+[node name="NavigationAgent2D" parent="." index="0"]
+debug_enabled = false
+
+[node name="MeleeAttackBox" parent="." index="4"]
+collision_mask = 8
+
+[node name="RangeAttackBox" parent="." index="5"]
+collision_mask = 8

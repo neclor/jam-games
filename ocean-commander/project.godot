@@ -1,0 +1,106 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Ocean Commander"
+run/main_scene="res://main/main.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/loading.png"
+config/icon="res://assets/ships/galleon.png"
+
+[autoload]
+
+Global="*res://main/global.gd"
+Signals="*res://main/signals.gd"
+Statistics="*res://main/statistics.gd"
+Equation="*res://addons/equation_real_solver/equation_real_solver.gd"
+Deflection="*res://addons/deflection_ballistics_formula/deflection_ballistics_formula.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=4
+
+[editor]
+
+movie_writer/mix_rate=8000
+movie_writer/mjpeg_quality=0.5
+movie_writer/movie_file="C:/movie/movie.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/deflection_ballistics_formula/plugin.cfg", "res://addons/equation_real_solver/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://game/": "blue",
+"res://game/islands/": "purple",
+"res://game/islands/resources/": "yellow",
+"res://game/islands/shipyards/": "yellow",
+"res://game/ships/": "purple",
+"res://game/ships/cannonball/": "yellow",
+"res://game/ships/enemy_ships/": "red",
+"res://game/ships/player_ships/": "blue",
+"res://main/": "pink",
+"res://menu/": "green",
+"res://menu/hud/": "green"
+}
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Gupter/Gupter-Bold.ttf"
+
+[input]
+
+player_ship_pressed={
+"deadzone": 0.5,
+"events": []
+}
+enemy_ship_pressed={
+"deadzone": 0.5,
+"events": []
+}
+zoom_in={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(205, 29),"global_position":Vector2(219, 99),"factor":1.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(163, 35),"global_position":Vector2(177, 105),"factor":4.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="earth"
+2d_physics/layer_3="ship"
+2d_physics/layer_4="player"
+2d_physics/layer_5="enemy"
+2d_physics/layer_7="cannonball"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

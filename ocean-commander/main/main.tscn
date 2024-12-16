@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqqf588iueays"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_obgk0"]
+[ext_resource type="PackedScene" uid="uid://c4c8x3tlo7jy6" path="res://menu/hud/hud.tscn" id="3_jowak"]
+[ext_resource type="AudioStream" uid="uid://n6fysikukwgj" path="res://assets/music/Traversing - Godmode.mp3" id="4_5l5q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arc8f"]
+bg_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_s3pw8"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_arc8f")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byfdw"]
+bg_color = Color(0.16, 0.16, 0.16, 1)
+border_width_left = 32
+border_width_top = 32
+border_width_right = 32
+border_width_bottom = 32
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_obgk0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_s3pw8")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/PanelContainer/Panel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/PanelContainer/Panel/CenterContainer"]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 96
+theme_override_styles/hover = SubResource("StyleBoxFlat_byfdw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_byfdw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_byfdw")
+text = "Start"
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_jowak")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5l5q5")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/Control/PanelContainer/Panel/CenterContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="CanvasLayer/Hud"]

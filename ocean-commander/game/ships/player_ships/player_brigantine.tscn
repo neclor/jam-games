@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7qor7qayncxf"]
+
+[ext_resource type="PackedScene" uid="uid://s6ha81gxw5hk" path="res://game/ships/player_ships/base_player_ship/base_player_ship.tscn" id="1_jepjw"]
+[ext_resource type="Texture2D" uid="uid://cubv4bytps8st" path="res://assets/ships/brigantine.png" id="2_t1ypw"]
+
+[node name="PlayerBrigantine" instance=ExtResource("1_jepjw")]
+collision_mask = 5
+max_hp = 200
+speed = 150
+attack_power = 10
+
+[node name="Sprite2D" parent="SpriteConatiner" index="0"]
+texture = ExtResource("2_t1ypw")

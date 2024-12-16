@@ -1,0 +1,231 @@
+[gd_scene load_steps=16 format=3 uid="uid://b68j01ywj02vb"]
+
+[ext_resource type="Script" path="res://game/ships/base_ship/base_ship.gd" id="1_g6gpw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sy722"]
+radius = 16.0
+height = 128.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4mjm"]
+radius = 32.0
+height = 128.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oyoe1"]
+radius = 32.0
+height = 196.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scbkd"]
+radius = 512.0
+
+[sub_resource type="Animation" id="Animation_vcox8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteConatiner:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_w32tp"]
+resource_name = "death"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteConatiner:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 6)
+}
+
+[sub_resource type="Animation" id="Animation_mhx75"]
+resource_name = "take_damage"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.174533, -0.25, 0, 0.25, 0, 0.174533, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.733333, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vp4jq"]
+_data = {
+"RESET": SubResource("Animation_vcox8"),
+"death": SubResource("Animation_w32tp"),
+"take_damage": SubResource("Animation_mhx75")
+}
+
+[sub_resource type="Animation" id="Animation_6mbxn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tsyot"]
+resource_name = "rotate"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.0872665, -0.25, 0, 0.25, 0, 0.0872665, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3, 9, 12)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbieg"]
+_data = {
+"RESET": SubResource("Animation_6mbxn"),
+"rotate": SubResource("Animation_tsyot")
+}
+
+[sub_resource type="Animation" id="Animation_bttwi"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner/Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_5l2hn"]
+resource_name = "sway"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteConatiner/Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 6, 8)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2h44h"]
+_data = {
+"RESET": SubResource("Animation_bttwi"),
+"sway": SubResource("Animation_5l2hn")
+}
+
+[node name="BaseShip" type="CharacterBody2D" groups=["ship"]]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_g6gpw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.7, 0.7, 0.7, 1)
+debug_path_custom_point_size = 8.0
+debug_path_custom_line_width = 8.0
+
+[node name="SpriteConatiner" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteConatiner"]
+offset = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sy722")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l4mjm")
+
+[node name="MeleeAttackBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_oyoe1")
+
+[node name="RangeAttackBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeAttackBox"]
+shape = SubResource("CircleShape2D_scbkd")
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="DamageAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vp4jq")
+}
+
+[node name="RotationAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qbieg")
+}
+
+[node name="PositionAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2h44h")
+}
+
+[node name="RegenItmer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="RegenItmer" to="." method="_on_regen_itmer_timeout"]

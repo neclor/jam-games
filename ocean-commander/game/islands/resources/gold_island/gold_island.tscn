@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bac7e5rfwk6td"]
+
+[ext_resource type="PackedScene" uid="uid://d352njlkb258p" path="res://game/islands/base_island/base_island.tscn" id="1_ekch8"]
+[ext_resource type="Texture2D" uid="uid://c2mtob3rec1j8" path="res://assets/islands/gold_island.png" id="2_bjwlv"]
+[ext_resource type="Script" path="res://game/islands/resources/gold_island/gold_island.gd" id="2_ki6py"]
+
+[node name="GoldIsland" instance=ExtResource("1_ekch8")]
+script = ExtResource("2_ki6py")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_bjwlv")
+
+[node name="Name" parent="." index="5"]
+text = "Gold island"

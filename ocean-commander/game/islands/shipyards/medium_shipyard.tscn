@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://0vxonop73mv0"]
+
+[ext_resource type="PackedScene" uid="uid://w5lv2sn5fbrd" path="res://game/islands/shipyards/base_shipyard/base_shipyard.tscn" id="1_q0xmg"]
+[ext_resource type="Texture2D" uid="uid://cvve452hxid48" path="res://assets/islands/medium_shipyard.png" id="2_2eg45"]
+
+[node name="MediumShipyard" instance=ExtResource("1_q0xmg")]
+z_index = 1
+brigantine = true
+
+[node name="Sprite2D" parent="." index="1"]
+z_index = 0
+texture = ExtResource("2_2eg45")
+
+[node name="Name" parent="." index="5"]
+text = "Medium shipyard"
+
+[node name="Time" parent="." index="6"]
+text = "Price:
+Gold: 150 Wood: 100"

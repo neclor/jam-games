@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvolmgcna7p43"]
+
+[ext_resource type="PackedScene" uid="uid://bx4om8uu4glwi" path="res://game/ships/enemy_ships/base_enemy_ship/base_enemy_ship.tscn" id="1_6pon3"]
+[ext_resource type="Texture2D" uid="uid://d0ahvhqcs8b6v" path="res://assets/ships/boat.png" id="2_7dxgd"]
+
+[node name="EnemyBoat" instance=ExtResource("1_6pon3")]
+max_hp = 100
+speed = 200
+attack_power = 10
+cannon = false
+
+[node name="Sprite2D" parent="SpriteConatiner" index="0"]
+texture = ExtResource("2_7dxgd")

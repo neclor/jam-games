@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://s6ha81gxw5hk"]
+
+[ext_resource type="PackedScene" uid="uid://b68j01ywj02vb" path="res://game/ships/base_ship/base_ship.tscn" id="1_0ddcq"]
+[ext_resource type="Script" path="res://game/ships/player_ships/base_player_ship/base_player_ship.gd" id="2_pvaod"]
+
+[node name="BasePlayerShip" groups=["player"] instance=ExtResource("1_0ddcq")]
+collision_layer = 12
+collision_mask = 29
+script = ExtResource("2_pvaod")
+target_group = &"enemy"
+
+[node name="TouchScreenButton" parent="." index="3"]
+action = "player_ship_pressed"
+
+[node name="MeleeAttackBox" parent="." index="4"]
+collision_mask = 16
+
+[node name="RangeAttackBox" parent="." index="5"]
+collision_mask = 16

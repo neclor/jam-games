@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8gtlko3kk2eo"]
+
+[ext_resource type="PackedScene" uid="uid://w5lv2sn5fbrd" path="res://game/islands/shipyards/base_shipyard/base_shipyard.tscn" id="1_1ljb4"]
+[ext_resource type="Texture2D" uid="uid://uylg7hh1nyb0" path="res://assets/islands/large_shipyard.png" id="2_2yge8"]
+
+[node name="LargeShipyard" instance=ExtResource("1_1ljb4")]
+z_index = 1
+production_time = 60
+
+[node name="Sprite2D" parent="." index="1"]
+z_index = 0
+texture = ExtResource("2_2yge8")
+
+[node name="Name" parent="." index="5"]
+text = "Large shipyard"
+
+[node name="Time" parent="." index="6"]
+text = "Price:
+Gold: 150 Wood: 200"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkpqku0pskxc2"]
+
+[ext_resource type="PackedScene" uid="uid://bx4om8uu4glwi" path="res://game/ships/enemy_ships/base_enemy_ship/base_enemy_ship.tscn" id="1_qebgk"]
+[ext_resource type="Texture2D" uid="uid://bt53bp1o5r0wm" path="res://assets/ships/galleon.png" id="2_bhn7v"]
+
+[node name="EnemyGalleon" instance=ExtResource("1_qebgk")]
+max_hp = 300
+speed = 100
+attack_power = 20
+attack_cooldown = 2
+
+[node name="Sprite2D" parent="SpriteConatiner" index="0"]
+texture = ExtResource("2_bhn7v")

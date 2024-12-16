@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwtm4t1adtv1c"]
+
+[ext_resource type="PackedScene" uid="uid://s6ha81gxw5hk" path="res://game/ships/player_ships/base_player_ship/base_player_ship.tscn" id="1_8c7lu"]
+[ext_resource type="Texture2D" uid="uid://d0ahvhqcs8b6v" path="res://assets/ships/boat.png" id="2_jngbw"]
+
+[node name="PlayerBoat" instance=ExtResource("1_8c7lu")]
+max_hp = 100
+speed = 200
+attack_power = 10
+cannon = false
+
+[node name="Sprite2D" parent="SpriteConatiner" index="0"]
+texture = ExtResource("2_jngbw")

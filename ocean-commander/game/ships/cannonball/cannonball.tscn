@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddvuyxfed035w"]
+
+[ext_resource type="Script" path="res://game/ships/cannonball/cannonball.gd" id="1_dtt1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37sqy"]
+radius = 16.0
+
+[node name="Cannonball" type="CharacterBody2D" groups=["cannonball"]]
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_dtt1o")
+speed = 500
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 28
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_37sqy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

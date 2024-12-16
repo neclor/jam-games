@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://w5lv2sn5fbrd"]
+
+[ext_resource type="PackedScene" uid="uid://d352njlkb258p" path="res://game/islands/base_island/base_island.tscn" id="1_ju77s"]
+[ext_resource type="Script" path="res://game/islands/shipyards/base_shipyard/base_shipyard.gd" id="2_vhcs1"]
+
+[node name="BaseShipyard" instance=ExtResource("1_ju77s")]
+script = ExtResource("2_vhcs1")
+brigantine = false
+production_time = 30
