@@ -25,7 +25,7 @@ You can play them on [Itch.io](https://necloor.itch.io)
 - [Source code](./ocean-commander)
 
 ### Furious Lardinus
-- Game was made for a university course.
+- Game was made for a university programming course.
 - [Game on Itch.io](https://necloor.itch.io/furious-lardinus)
 - [Source code](./furious-lardinus)
 
