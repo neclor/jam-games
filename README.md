@@ -29,3 +29,7 @@ You can play them on [Itch.io](https://necloor.itch.io)
 - [Game on Itch.io](https://necloor.itch.io/furious-lardinus)
 - [Source code](./furious-lardinus)
 
+### Recoil Of Barrel
+- Guns with crazy recoil accelerate you more than bullets. Can you turn recoil into your main weapon?
+- [Game on Itch.io](https://neclordev.itch.io/recoil-of-barrel)
+- [Source code](https://github.com/sudo-m3z1m/RecoilBarrel)
